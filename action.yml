@@ -1,0 +1,14 @@
+name: 'APK Reader'
+description: 'Reads the contents of the apk and returns version name and version code'
+inputs:
+  path:  # path of the apk artifact
+    description: 'Path where the apk artifact is stored'
+    required: true
+    default: ''
+  file-name:  # name of the apk artifact
+    description: 'name of the apk file'
+    required: true
+    default: ''
+runs:
+  using: 'node16'
+  main: 'lib/index.js'
