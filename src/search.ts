@@ -7,7 +7,7 @@ import {promisify} from 'util'
 const stats = promisify(stat)
 
 export interface SearchResult {
-  filesToUpload: string[]
+  file: string
   rootDirectory: string
 }
 
@@ -134,7 +134,7 @@ export async function findFilesToUpload(
     )
 
     return {
-      filesToUpload: searchResults,
+      file: searchResults[0],
       rootDirectory: lcaSearchPath
     }
   }
@@ -145,13 +145,13 @@ export async function findFilesToUpload(
   */
   if (searchResults.length === 1 && searchPaths[0] === searchResults[0]) {
     return {
-      filesToUpload: searchResults,
+      file: searchResults[0],
       rootDirectory: dirname(searchResults[0])
     }
   }
 
   return {
-    filesToUpload: searchResults,
+    file: '',
     rootDirectory: searchPaths[0]
   }
 }
