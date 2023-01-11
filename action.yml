@@ -5,7 +5,7 @@ inputs:
     description: 'Path where the apk artifact is stored'
     required: true
     default: ''
-  file-name:  # name of the apk artifact
+  name:  # name of the apk artifact
     description: 'name of the apk file'
     required: true
     default: ''
