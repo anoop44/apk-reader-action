@@ -9,6 +9,11 @@ inputs:
     description: 'name of the apk file'
     required: true
     default: ''
+outputs:
+  version-code:
+    description: 'version code that is read from the manifest file'
+  version-name:
+    description: 'version name that is read from the manifest file'
 runs:
   using: 'node16'
   main: 'lib/index.js'

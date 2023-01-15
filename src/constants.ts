@@ -2,6 +2,11 @@ export enum Inputs {
     Name = 'name',
     Path = 'path',
   }
+
+export enum Outputs {
+  VersionName = 'version-name',
+  VersionCode = 'version-code'
+}
   
   export enum NoFileOptions {
     /**

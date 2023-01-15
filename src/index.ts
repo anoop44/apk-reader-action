@@ -1,7 +1,7 @@
 import * as core from '@actions/core'
 import {findFilesToUpload} from './search'
 import {getInputs} from './input-helper'
-import {NoFileOptions} from './constants'
+import {NoFileOptions, Outputs} from './constants'
 import {inspect} from 'util'
 
 async function run(): Promise<void> {
@@ -12,7 +12,10 @@ async function run(): Promise<void> {
           const apk_reader = require('node-apk-parser')
           const reader = apk_reader.readFile(searchResult.file)
           const manifest = reader.readManifestSync()
-          console.log(inspect(manifest, { depth: null }))
+          console.log(`version name = ${manifest.versionName}`)
+          console.log(`version code = ${manifest.versionCode}`)
+          core.setOutput(Outputs.VersionName, manifest.versionName)
+          core.setOutput(Outputs.VersionCode, manifest.versionCode)
         } else {
           throw new Error("apk file not found in mentioned path")
         }
