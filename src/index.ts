@@ -10,8 +10,8 @@ async function run(): Promise<void> {
         const searchResult = await findFilesToUpload(inputs.searchPath)
         if(searchResult.file.length > 1) {
           const apk_reader = require('node-apk-parser')
-          apk_reader.readFile(searchResult.file)
-          const manifest = apk_reader.readManifestSync()
+          const reader = apk_reader.readFile(searchResult.file)
+          const manifest = reader.readManifestSync()
           console.log(inspect(manifest, { depth: null }))
         } else {
           throw new Error("apk file not found in mentioned path")
